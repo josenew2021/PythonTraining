@@ -1,0 +1,24 @@
+Mensaje encriptado 
+
+Usted desea implementar un sistema de comunicación segura en el que los mensajes se transformen en un artefacto no reconocible por aquellos que no cuenten con la clave de desencriptado pero que pueda ser traducido por aquellos que sí cuenten con ella. Un método posible para encriptar un mensaje consiste en tomar cada caracter de él, convertirlo en un número entero usando alguna regla, “desorganizar” los números resultantes y escribir esta nueva secuencia de números en una matriz cuadrada, para compactar el mensaje.
+Para el desencriptado del mensaje, se tomaría el mensaje encriptado (en una matriz cuadrada) y una clave de encriptado (algo que sugiera cómo se desorganizaron los números inicialmente) para revertir con ellos dos todos los procesos involucrados en el encriptado y obtener el mensaje original. Recordemos que una matriz cuadrada es una matriz en la que la cantidad de filas en ella es igual a la cantidad de columnas.
+Este método no serviría para aquellos mensajes que tengan una longitud que no sea igual al cuadrado de algún entero (que no sean de 1 carácter de largo, de 4 caracteres de largo, de 9 caracteres de largo, …) porque una matriz cuadrada siempre tendrá una cantidad de entradas igual a alguna potencia de un entero y quedarían o faltando o sobrando caracteres en el llenado de esa matriz cuadrada.
+Pero si se le agrega al mensaje que se va a encriptar la cantidad suficiente de caracteres extra para que la longitud de este mensaje termine siendo igual a la potencia de algún entero, se puede utilizar este método de encriptado. A modo de ejemplo, supongamos que se desea encriptar este mensaje:
+
+Today is Caturday!
+
+Este mensaje contiene 18 caracteres, incluyendo los espacios. Con ellos no se podría llenar completamente ninguna matriz cuadrada porque ellas tendrán 4, 9, 16, 25, … entradas; no obstante, si se “rellena” el mensaje con caracteres adicionales así:
+
+Today is Caturday!_______
+
+Se obtendrá un nuevo mensaje de 25 caracteres que sí llenará completamente una matriz cuadrada, en este caso, una matriz de 5 × 5. Este llenado se vería así: ||Today is Caturday!_______||
+Con el mensaje dispuesto así en una matriz cuadrada, se puede iniciar la encriptación cambiando cada letra por un número y continuar con los demás pasos hasta obtener un mensaje encriptado dentro de una matriz cuadrada.
+Python contiene una pareja de métodos: El método “ord(caracter)” que recibe un caracter y retorna el código en Unicode de dicho carácter; y el método “chr(código)” que recibe un número entero (código) y retorna el caracter correspondiente a dicho valor en Unicode. Este método puede usarse para iniciar el encriptado del mensaje; pero por sí solo no ofrecería protección suficiente del mensaje. En la figura a continuación se muestra una tabla que muestra las equivalencias de las letras mayúsculas y minúsculas con sus códigos en Unicode.
+Fuente: Creación propia
+
+Para alcanzar el objetivo que se planteó, usted se propuso seguir este protocolo de encriptado:
+• Agregar al mensaje tantos guiones de pie (_) como sean necesarios para que la cantidad total de caracteres en este sea igual a la potencia de un número, en particular, la potencia más cercana al número original de caracteres en el mensaje.
+• Insertar todos los caracteres del mensaje y los guiones de relleno en una lista para después “desordenar” dicha lista, haciendo secreto el mensaje
+
+original; así, el nuevo orden de los caracteres del mensaje no lo va a revelar directamente. Si se cuenta con un “patrón de desorden”, este será la CLAVE que permitirá la traducción del mensaje encriptado.
+• Convertir cada caracter a su respectivo código de Unicode usando la función “ord”; así en lugar de letras, signos de puntuación y números se tendrán códigos de Unicode representando el mensaje

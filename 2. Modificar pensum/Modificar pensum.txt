@@ -1,0 +1,78 @@
+Modificar pensum
+
+La Universidad de software AllStacks necesita un sistema de información para
+gestionar los pensums o currículos de los programas que ofrece, ya que este
+será la base sobre la que se construirá un el sistema de matrículas. Usted hace
+parte del equipo de desarrollo y su Jefe le encargó implementar la
+funcionalidad de modificar una materia de un pensum, además, le dió la
+especificación de la definición de las estructuras de datos.
+
+Dado que un pensum tiene 𝑛 semestres y estos son ordinales, es decir,
+primero está el semestre 1, luego está el semestre 2 y así, este es
+representado por una lista donde cada posición será un semestre, este no
+puede ser una tupla dado que necesitamos modificarlo.
+
+Cada semestre es, a su vez, una colección, esta vez de materias, estas tienen
+un código que las permite identificar y no son ordinales, por lo tanto los
+semestres serán representados como diccionarios donde las claves serán los
+códigos de las materias y en las claves estarán las materias.
+
+Por último tenemos a las materias, dado que necesitamos almacenar el
+nombre y cantidad de créditos de las mismas, también usaremos diccionarios.
+A continuación se le muestra un ejemplo de un pensum de un programa de 3
+semestres que solo se le añadieron materias en el primer semestre:
+
+pensum = [
+{'0123': {'nombre': 'intro a la ing', 'créditos': 2},
+'4567': {'nombre': 'inglés', 'créditos': 1}},
+{}, {}
+]
+
+Como se mencionó, solo 2 materias fueron añadidas al primer semestre, la
+primera tiene código: 0123, nombre: intro a la ing y créditos 2, la segunda tiene
+código: 4567, nombre: inglés y créditos 1.
+
+TAREAS
+Dado un pensum como el ya descrito, para implementar la funcionalidad debe:
+● Validar que el número del semestre donde está la materia que el
+usuario modificar si corresponde a un semestre.
+● Validar que el semestre que se desea modificar no esté vacío.
+● Validar que el código de la materia a modificar esté en el semestre
+seleccionado por el usuario.
+Luego de las validaciones puede proceder a modificar el nombre y créditos de
+la materia seleccionada por los valores proporcionados por el usuario.
+
+FORMATO DE ENTRADA
+Las entradas de la función 𝑚𝑜𝑑𝑖𝑓𝑖𝑐𝑎𝑟_𝑚𝑎𝑡𝑒𝑟𝑖𝑎 están escritas en la plantilla de la
+solución, por favor NO eliminarlas o modificarlas, esto podría resultar en un
+fallo en su calificación.
+● 𝑝𝑒𝑛𝑠𝑢𝑚 es la referencia a la estructura que se desea modificar.
+● 𝑠𝑒𝑚𝑒𝑠𝑡𝑟𝑒 es el número (int) del semestre en el que se encuentra la
+materia que desea modificar el usuario.
+● 𝑚𝑎𝑡𝑒𝑟𝑖𝑎 es el código de la materia (string) que desea modificar el
+usuario.
+● 𝑛𝑜𝑚𝑏𝑟𝑒 es el nuevo nombre (string) que desea el usuario para la materia
+seleccionada.
+● 𝑐𝑟𝑒𝑑𝑖𝑡𝑜𝑠 es la nueva cantidad de créditos (int) que desea el usuario para
+la materia seleccionada.
+
+FORMATO DE SALIDA
+La salida de esta función está escrita en la plantilla de la solución, por favor NO
+eliminarlas.
+La salida es la variable mensaje, si en la validación encuentra que el semestre
+es inválido, usted debe guardar en esta variable EXACTAMENTE “Ingrese un
+semestre válido”; si en la validación encuentra que el semestre es vacío, usted
+debe guardar en esta variable EXACTAMENTE “El semestre no tiene materias”;
+si en la validación encuentra que el el código de la materia no está en el
+semestre seleccionado, usted debe guardar en esta variable EXACTAMENTE
+“La materia no existe”; en caso de pasar todas las validaciones y lograr 
+modificar la materia, usted debe guardar en esta variable EXACTAMENTE
+“Modificada con éxito”.
+
+NOTAS:
+1. Recuerde que para el usuario el primer semestre o semestre 1 se
+encuentra en la posición con índice cero en el pensum, usted debe tener
+esto en cuenta para convertir la entrada del usuario apropiadamente .
+2. Si en la validación se encuentra alguna entrada incorrecta, no se debe
+modificar el pensum y se debe escribir el mensaje de error
+correspondiente al caso en

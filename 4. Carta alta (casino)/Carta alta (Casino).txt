@@ -1,0 +1,36 @@
+Carta alta 
+
+Usted es un desarrollador en una compañía que se dedica a desarrollar
+software para casinos y apuestas, su jefe le encargó programar un juego de
+cartas para dos jugadores, en este se usa una baraja estándar de naipes de 52
+cartas, el jugador 1 comienza sacando una carta, luego el jugador 2 continúa y
+así sucesivamente hasta que no quede ninguna carta en la baraja.
+
+La baraja estándar tiene 13 tipos de cartas: ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+'J', 'Q', 'K'] donde cada tipo aparece 4 veces, una por palo, por tanto hay 4 palos
+(trébol, pica, diamante, corazón) pero solo nos interesa la cantidad de veces
+que aparece cada tipo de carta, en este caso 4. Las cartas ['A', 'J', 'Q', 'K'] se
+conocen como cartas altas. Cuando un jugador toma una carta alta, tiene la
+posibilidad de ganar puntos de la siguiente manera:
+
+● Si el jugador toma una carta A y la siguiente carta en la baraja no es una
+carta alta, gana 1 punto.
+● Si el jugador toma una carta J y ninguna de las dos cartas que siguen en
+la baraja son una carta alta, gana 2 puntos.
+● Si el jugador toma una carta Q y ninguna de las tres cartas que siguen
+en la baraja son una carta alta, gana 3 puntos.
+● Si el jugador toma una carta K y ninguna de las cuatro cartas que siguen
+en la baraja son una carta alta, gana 4 puntos.
+Si hay menos cartas de las necesarias para ganar puntos, estos no se
+obtendrán.
+
+Su función solución 𝑗𝑢𝑔𝑎𝑟(𝑏𝑎𝑟𝑎𝑗𝑎) tendrá como entrada una baraja de cartas,
+como la descrita anteriormente, desordenada, además, debe de retornar los
+puntajes del jugador 1 y 2 respectivamente.
+
+Por otra parte, en su función solución debe de invocar una función booleana
+llamada 𝑡𝑖𝑒𝑛𝑒_𝑐𝑎𝑟𝑡𝑎𝑠_𝑎𝑙𝑡𝑎𝑠(𝑐𝑎𝑟𝑡𝑎𝑠_𝑠𝑖𝑔𝑢𝑖𝑒𝑛𝑡𝑒𝑠), como puede ver, para calcular
+los puntajes hay diferentes condiciones que tienen el mismo comportamiento
+de verificar si en las cartas siguientes, que tienen una cantidad variable, hay
+alguna carta alta, por lo tanto este comportamiento se puede agrupar en una
+función lo que evita la repetición de código y promueve las buenas prácticas
