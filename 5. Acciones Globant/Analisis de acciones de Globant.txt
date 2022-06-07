@@ -1,0 +1,100 @@
+Analisis de acciones de Globant S.A. 
+
+Su empresa ha sido contratada por la reconocida casa desarrolladora de software 
+Globant S.A. para analizar el precio de sus acciones desde el 23 de abril del 2021 
+hasta el 23 de abril del 2022, esto con el fin de mejorar la toma de decisiones y 
+predecir cómo pueden influir en el mercado de las acciones.
+
+Usted está vinculado a la empresa como Científico de datos; el líder del
+proyecto le brinda las siguientes especificaciones que debe considerar sobre el
+archivo entregado:
+
+● Se le brinda un archivo CSV llamado 𝐺𝐿𝑂𝐵𝐴𝑁𝑇. 𝑐𝑠𝑣.
+● Este archivo incluye el precio de las acciones de la empresa Globant en
+la bolsa de valores de Nueva York en un periodo de un año (Especificado
+al inicio). Fuente: https://cutt.ly/AGjd00Q
+● Cada renglón del archivo representa los datos de un día, excepto el
+primer renglón que corresponde al encabezado.
+● Cada línea tiene (separados por comas ",") y en este orden los
+siguientes datos:
+	0. Date: Fecha del dato
+	1. Open: Precio de apertura de la acción en la bolsa
+	2. High: Precio más alto durante el día
+	3. Low: Precio más bajo durante el día
+	4. Close: Precio de cierre de la acción
+	5. Adj Close: Precio de cierre ajustado de la acción
+	6. Volume: Volumen de acciones transadas durante el día
+● La visualización la puede realizar en Microsoft Excel o bloc de notas
+descargando el segundo archivo de la descripción.
+● Usted NO debe hacerle modificaciones al archivo.
+
+
+
+TAREAS
+Mediante la programación de la función 𝑠𝑜𝑙𝑢𝑐𝑖𝑜𝑛():
+● Crear un nuevo archivo llamado 𝑎𝑛𝑎𝑙𝑖𝑠𝑖𝑠_𝑎𝑟𝑐ℎ𝑖𝑣𝑜. 𝑐𝑠𝑣, cuyo delimitador
+no será el que está por defecto (Coma ",") sino un tabulador; con este
+archivo hará lo siguiente:
+
+	1. El encabezado debe ser: "Fecha Comportamiento de la
+	accion Punto medio HIGH-LOW" (Lo señalado en rojo es
+	equivalente a una tabulación y lo señalado en verde es
+	equivalente a un espacio).
+
+	2. Lea el archivo 𝐺𝐿𝑂𝐵𝐴𝑁𝑇. 𝑐𝑠𝑣 línea por línea, y a medida que vaya
+	leyendo, escriba en 𝑎𝑛𝑎𝑙𝑖𝑠𝑖𝑠_𝑎𝑟𝑐ℎ𝑖𝑣𝑜. 𝑐𝑠𝑣 lo siguiente:
+		▪ La fecha del día que está leyendo
+		▪ Un tabulador
+		▪ Una cadena de texto que será un concepto respecto al
+		precio de apertura y cierre de la acción en la fecha que se
+		está leyendo:
+			● SUBE: Si 𝐶𝑙𝑜𝑠𝑒 (Donde es el día que se 𝑖 − 𝑂𝑝𝑒𝑛𝑖 > 0 𝑖 𝑖
+			está analizando).
+			● BAJA: Si 𝐶𝑙𝑜𝑠𝑒 (Donde es el día que se 𝑖 − 𝑂𝑝𝑒𝑛𝑖 < 0 𝑖 𝑖
+			está analizando).
+			● ESTABLE: Si 𝐶𝑙𝑜𝑠𝑒 (Donde es el día 𝑖 − 𝑂𝑝𝑒𝑛𝑖 = 0 𝑖 𝑖
+			que se está analizando).
+				▪ Un tabulador
+				▪ El resultado de realizar la operación (𝐻𝑖𝑔ℎ−𝐿𝑜𝑤)/2
+
+● Crear un nuevo archivo llamado 𝑑𝑒𝑡𝑎𝑙𝑙𝑒𝑠. 𝑗𝑠𝑜𝑛; con este archivo hará lo
+	siguiente:
+	1. Este JSON tendrá las siguientes llaves:
+		▪ "date_lowest_price" (Guardará una cadena de texto)
+		▪ "lowest_price" (Guardará un número flotante)
+		▪ "date_highest_price" (Guardará una cadena de texto)
+		▪ "highest_price" (Guardará un número flotante)
+		▪ "cantidad_veces_sube" (Guardará un número entero)
+		▪ "cantidad_veces_baja" (Guardará un número entero)
+		▪ "cantidad_veces_estable" (Guardará un número entero)
+	
+	2. En "date_lowest_price" deberá guardar una cadena de texto
+	con la fecha donde se dio el precio más bajo alcanzado por la
+	acción de Globant durante el periodo analizado.
+	
+	3. En "lowest_price" deberá guardar el precio más bajo
+	alcanzado por la acción de Globant durante el periodo analizado.
+	
+	4. En "date_highest_price" deberá guardar una cadena de texto
+	con la fecha donde se dio el precio más alto alcanzado por la
+	acción de Globant durante el periodo analizado.
+	
+	5. En "highest_price" deberá guardar el precio más alto
+	alcanzado por la acción de Globant durante el periodo analizado.
+
+	6. En "cantidad_veces_sube" deberá guardar la cantidad de
+	veces que subió la acción de Globant en el periodo analizado.
+	Pista: Es la cantidad de veces que aparece la cadena de texto
+	"SUBE" en el archivo 𝑎𝑛𝑎𝑙𝑖𝑠𝑖𝑠_𝑎𝑟𝑐ℎ𝑖𝑣𝑜. 𝑐𝑠𝑣
+
+	7. En "cantidad_veces_baja" deberá guardar la cantidad de
+	veces que bajó la acción de Globant en el periodo analizado.
+	Pista: Es la cantidad de veces que aparece la cadena de texto
+	"BAJA" en el archivo 𝑎𝑛𝑎𝑙𝑖𝑠𝑖𝑠_𝑎𝑟𝑐ℎ𝑖𝑣𝑜. 𝑐𝑠𝑣
+
+	8. En "cantidad_veces_estable" deberá guardar la cantidad de
+	veces que se mantuvo estable la acción de Globant en el periodo
+	analizado.
+	Pista: Es la cantidad de veces que aparece la cadena de texto
+	"ESTABLE" en el archivo 𝑎𝑛𝑎𝑙𝑖𝑠𝑖𝑠_𝑎𝑟𝑐ℎ𝑖𝑣𝑜. 𝑐𝑠𝑣
+
